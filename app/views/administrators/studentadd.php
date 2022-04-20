@@ -43,7 +43,7 @@
           <label for="class">Class</label>
           <input type="text" class="form-control" id="class" placeholder="class" name="class">
         </div>
-        <button type="submit" name="edit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="add" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

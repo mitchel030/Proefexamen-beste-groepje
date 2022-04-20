@@ -138,4 +138,30 @@ class Administrator
       return "Not all required fields are filled in.";
     }
   }
+
+  // Function to generate an overview of all deskstaffs in HTML table rows
+  public function overviewDeskstaff()
+  {
+    $sql = "SELECT * FROM `deskstaff`;";
+    // Allow to use the query within PDO
+    $this->db->query($sql);
+    // Execute and return an array from given SQL statement
+    $all_deskstaffs = $this->db->resultSet();
+    // Declare studentRows variable as a string
+    $deskstaffRows = "";
+    // For each row, write a HTML row with data
+    foreach ($all_deskstaffs as $as) {
+      $deskstaffRows .= "<tr>";
+      $deskstaffRows .= "<th scope='row'>" . $as->studentnr . "</th>";
+      $deskstaffRows .= "<td>" . $as->firstname . "</td>";
+      $deskstaffRows .= "<td>" . $as->lastname . "</td>";
+      $deskstaffRows .= "<td>" . $as->email . "</td>";
+      $deskstaffRows .= "<td>" . $as->class . "</td>";
+      $deskstaffRows .= "<td><a href='" . URLROOT . "/administrators/deskstaffedit?id=" . $as->deskstaffid . "'>Edit deskstaff</a></td>";
+      $deskstaffRows .= "<td><a href='" . URLROOT . "/administrators/deskstaffdelete?id=" . $as->deskstaffid . "'>Delete deskstaff</a></td>";
+      $deskstaffRows .= "</tr>";
+    }
+    // Return the HTML rows with data
+    return $deskstaffRows;
+  }
 }

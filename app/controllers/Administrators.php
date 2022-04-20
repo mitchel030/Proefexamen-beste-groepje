@@ -99,4 +99,16 @@ class Administrators extends Controller
     }
     $this->view('administrators/studentadd', $student = []);
   }
+
+  // Initiate admin/deskstaff view
+  public function deskstaff()
+  {
+    // Initiate viewStudents function in models/Administrator.php and put the result in $studentOverview
+    $deskstaffOverview = $this->adminModel->overviewDeskstaff();
+
+    // Send array of data with the view to administrator/student, include overview data in an array
+    $this->view('administrators/deskstaff', $deskstaff = [
+      "overview" => $deskstaffOverview
+    ]);
+  }
 }

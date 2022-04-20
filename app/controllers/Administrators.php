@@ -26,6 +26,15 @@ class Administrators extends Controller
   // Initiate admin/studentedit view
   public function studentedit()
   {
-    $this->view('administrators/studentedit');
+    // Get $_GET variable 'id' if it's set.
+    if (isset($_GET)) {
+      if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+      }
+    }
+    // Send array of data with the view to administrator/studentedit, include id of student being requested
+    $this->view('administrators/studentedit', $student = [
+      "id" => $id
+    ]);
   }
 }

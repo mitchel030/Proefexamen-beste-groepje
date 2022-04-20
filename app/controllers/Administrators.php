@@ -111,4 +111,46 @@ class Administrators extends Controller
       "overview" => $deskstaffOverview
     ]);
   }
-}
+
+
+public function deskstaffDel()
+  {
+    
+    if (isset($_GET)) {
+      if (isset($_GET["id"])) 
+        $id = $_GET["id"];
+        $deletedRows = $this->adminModel->deskstaffDel($id);
+        if ($deletedRows === 1) {
+          
+          header("Location: deskstaff");
+        
+
+        }
+      }
+    }
+    public function destroy() {
+      $this->adminModel->destroy();
+
+      $this->redirect('administrators');
+    }
+    
+    public function deskstaffedit($id = null)
+    {
+      if($_SERVER["REQUEST_METHOD"]== "POST"){
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+      $this->adminModel->updateDesk($_POST);
+
+      header("Location: deskstaff");
+      }else{
+        $row = $this->adminModel->getSingleDesks($id);
+
+        $data=[
+          'title'=> '<h1> update user</h1>',
+          'row' => $row
+        ];
+
+        $this->view("administrators/deskstaffedit", $data);
+      }
+    }
+  }

@@ -158,10 +158,51 @@ class Administrator
       $deskstaffRows .= "<td>" . $as->email . "</td>";
       $deskstaffRows .= "<td>" . $as->class . "</td>";
       $deskstaffRows .= "<td><a href='" . URLROOT . "/administrators/deskstaffedit?id=" . $as->deskstaffid . "'>Edit deskstaff</a></td>";
-      $deskstaffRows .= "<td><a href='" . URLROOT . "/administrators/deskstaffdelete?id=" . $as->deskstaffid . "'>Delete deskstaff</a></td>";
+      $deskstaffRows .= "<td><a href='" . URLROOT . "/administrators/destroy?id=" . $as->deskstaffid . "'>Delete deskstaff</a></td>";
       $deskstaffRows .= "</tr>";
     }
     // Return the HTML rows with data
     return $deskstaffRows;
+  }
+  public function destroy()
+  {
+   $id = $_GET["id"];
+   $this->db->query("DELETE FROM deskstaff WHERE deskstaffid = {$id}");
+   return $this->db->execute();
+    // $sql = "DELETE FROM `deskstaff` WHERE `deskstaffid` = $id";
+  
+    // $this->db->query($sql);
+    
+    // $this->db->execute();
+   
+    // return $this->db->rowCount();
+  }
+
+  public function getSingleDesks($id)
+  {
+    $this->db->query("SELECT * FROM deskstaff WHERE deskstaffid = :id");
+    $this->db->bind(':id' , $id, PDO::PARAM_INT);
+
+    return $this->db->single();
+  }
+
+  public function updateDesk($post)
+  {
+    $this->db->query("UPDATE deskstaff
+                                  SET studentnr = :studentnr,
+                                  firstname = :firstname,
+                                  lastname = :lastname,
+                                  email = :email,
+                                  class = :class
+                                WHERE deskstaffid = :id");
+
+    $this->db->bind(':id' , $post["id"], PDO::PARAM_INT);
+    $this->db->bind(':studentnr', $post["studentnr"]);
+    $this->db->bind(':firstname', $post["firstname"]);
+    $this->db->bind(':lastname', $post["lastname"]);
+    $this->db->bind(':email', $post["email"]);
+    $this->db->bind(':class', $post["class"]);
+
+    return $this->db->execute();
   }
 }

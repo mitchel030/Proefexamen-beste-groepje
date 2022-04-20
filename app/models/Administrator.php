@@ -35,8 +35,22 @@ class Administrator
     return $studentRows;
   }
 
+  // Retrieve data of specific student based on the student id
+  public function getStudent($id)
+  {
+    // Create SQL statement
+    $sql = "SELECT * FROM `student` WHERE `studentid` = '$id'";
+    // Prepare SQL statement
+    $this->db->query($sql);
+    // Execute SQL query
+    $this->db->execute();
+    // Return information from database
+    return $this->db->single();
+  }
+
   // Edit student details based on 
   public function editStudent()
   {
+    var_dump($_POST);
   }
 }

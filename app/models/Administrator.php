@@ -55,7 +55,7 @@ class Administrator
     $firstname = filter_var($_POST["firstname"], FILTER_SANITIZE_STRING);
     $infix = filter_var($_POST["infix"], FILTER_SANITIZE_STRING);
     $lastname = filter_var($_POST["lastname"], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $phone = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
     $class = filter_var($_POST["class"], FILTER_SANITIZE_STRING);
 
@@ -103,10 +103,10 @@ class Administrator
     $firstname = filter_var($_POST["firstname"], FILTER_SANITIZE_STRING);
     $infix = filter_var($_POST["infix"], FILTER_SANITIZE_STRING);
     $lastname = filter_var($_POST["lastname"], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $phone = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
     $class = filter_var($_POST["class"], FILTER_SANITIZE_STRING);
 
-    
+    if ()
   }
 }

@@ -80,4 +80,23 @@ class Administrators extends Controller
     // Send array of data with the view to administrator/studentdelete
     $this->view('administrators/studentdelete', $student = []);
   }
+
+  // Initiate addStudent function in the model
+  public function studentAdd()
+  {
+    // Check if $_POST is set and if $_POST value add is send
+    if (isset($_POST)) {
+      if (isset($_POST["add"])) {
+        $addedStudents = $this->adminModel->addStudent();
+        // If one student is added, redirect user to 
+        if ($addedStudents === 1) {
+          header("Location: student");
+        } else {
+          // Return amount of created students if 0 of more than 1 have been created
+          var_dump($addedStudents);
+        }
+      }
+    }
+    $this->view('administrators/studentadd', $student = []);
+  }
 }

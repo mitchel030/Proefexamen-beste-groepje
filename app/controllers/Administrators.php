@@ -90,7 +90,7 @@ class Administrators extends Controller
         $addedStudents = $this->adminModel->addStudent();
         // If one student is added, redirect user to 
         if ($addedStudents === 1) {
-          var_dump($addedStudents);
+          header("Location: student");
         } else {
           // Return amount of created students if 0 of more than 1 have been created
           var_dump($addedStudents);

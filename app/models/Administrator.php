@@ -95,9 +95,9 @@ class Administrator
     return $this->db->rowCount();
   }
 
+  // Creates a new student and add the data into table `student`
   public function addStudent()
   {
-    var_dump($_POST);
     // Filter all POST variables using PHP build in filter_var function
     $nr = filter_var($_POST["studentnumber"], FILTER_SANITIZE_STRING);
     $firstname = filter_var($_POST["firstname"], FILTER_SANITIZE_STRING);
@@ -107,6 +107,35 @@ class Administrator
     $phone = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
     $class = filter_var($_POST["class"], FILTER_SANITIZE_STRING);
 
-    if ()
+    // Check if every post variable except for infix is filled in
+    if (!empty($nr) && !empty($firstname) && !empty($lastname) && !empty($email) && !empty($phone) && !empty($class)) {
+      // Create query using the filtered inputs
+      $sql = "INSERT INTO `student` 
+                          (`studentid`, 
+                          `studentnr`, 
+                          `firstname`, 
+                          `infix`, 
+                          `lastname`, 
+                          `email`, 
+                          `phone`, 
+                          `class`) 
+                    VALUES (NULL, 
+                            '$nr', 
+                            '$firstname', 
+                            '$infix', 
+                            '$lastname', 
+                            '$email', 
+                            '$phone', 
+                            '$class');";
+      // Prepare SQL Statement
+      $this->db->query($sql);
+      // Execute SQL Statement
+      $this->db->execute();
+      // Return the amount of rows that are modified
+      return $this->db->rowCount();
+    } else {
+      // If not all the fields are filled in
+      return "Not all required fields are filled in.";
+    }
   }
 }

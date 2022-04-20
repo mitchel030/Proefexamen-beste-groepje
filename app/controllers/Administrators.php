@@ -56,4 +56,10 @@ class Administrators extends Controller
       "studentinfo" => $studentinfo
     ]);
   }
+
+  // Initiate deleteStudent function in the model
+  public function studentDelete() 
+  {
+    
+  }
 }

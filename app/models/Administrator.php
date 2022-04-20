@@ -27,8 +27,8 @@ class Administrator
       $studentRows .= "<td>" . $as->email . "</td>";
       $studentRows .= "<td>" . $as->phone . "</td>";
       $studentRows .= "<td>" . $as->class . "</td>";
-      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentedit?id=" . $as->studentid . "'>Edit Student</a></li></td>";
-      $studentRows .= "<td>Delete</td>";
+      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentedit?id=" . $as->studentid . "'>Edit Student</a></td>";
+      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentdelete?id=" . $as->studentid . "'>Delete Student</a></td>";
       $studentRows .= "</tr>";
     }
     // Return the HTML rows with data
@@ -38,17 +38,15 @@ class Administrator
   // Retrieve data of specific student based on the student id
   public function getStudent($id)
   {
-    // Create SQL statement
+    // Create SQL SELECT statement
     $sql = "SELECT * FROM `student` WHERE `studentid` = '$id'";
     // Prepare SQL statement
     $this->db->query($sql);
-    // Execute SQL query
-    $this->db->execute();
     // Return information from database
     return $this->db->single();
   }
 
-  // Edit student details based on 
+  // Edit student details based on POST values given from the edit form
   public function editStudent()
   {
     // Filter all POST variables using PHP build in filter_var function
@@ -79,7 +77,21 @@ class Administrator
       // Return the amount of rows that are modified
       return $this->db->rowCount();
     } else {
+      // If not all the fields are filled in
       return "Not all required fields are filled in.";
     }
+  }
+
+  // Delete student details from the student table, returns number amount of rows affected by the SQL statement
+  public function deleteStudent($id)
+  {
+    // Create SQL DELETE Statement
+    $sql = "DELETE FROM `student` WHERE `student`.`studentid` = $id";
+    // Prepare SQL statement
+    $this->db->query($sql);
+    // Execute SQL statement
+    $this->db->execute();
+    // Return a rowcount
+    return $this->db->rowCount();
   }
 }

@@ -8,7 +8,7 @@
     <div class="col-10">
       <h1>Deskstaff Overview</h1>
       <a class="btn btn-primary" href="<?= URLROOT ?>/administrators/studentadd" role="button">Create a new user</a>
-      <!-- Table with student information -->
+      <!-- Table with deskstaff information -->
       <table class="table table-hover">
         <thead>
           <tr>
@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Echo table `student` data concatenated into HTML in $data -->
+          <!-- Echo table `deskstaff` data concatenated into HTML in $data[overview] -->
           <?= $data["overview"] ?>
         </tbody>
       </table>

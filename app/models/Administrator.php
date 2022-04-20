@@ -42,8 +42,6 @@ class Administrator
     $sql = "SELECT * FROM `student` WHERE `studentid` = '$id'";
     // Prepare SQL statement
     $this->db->query($sql);
-    // Execute SQL query
-    $this->db->execute();
     // Return information from database
     return $this->db->single();
   }
@@ -79,6 +77,7 @@ class Administrator
       // Return the amount of rows that are modified
       return $this->db->rowCount();
     } else {
+      // If not all the fields are filled in
       return "Not all required fields are filled in.";
     }
   }

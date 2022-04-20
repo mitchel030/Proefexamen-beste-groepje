@@ -82,8 +82,14 @@ class Administrators extends Controller
   }
 
   // Initiate addStudent function in the model
-  public function studentAdd() 
+  public function studentAdd()
   {
+    // Check if $_POST is set and if $_POST value add is send
+    if (isset($_POST)) {
+      if (isset($_POST["add"])) {
+        var_dump($_POST);
+      }
+    }
     $this->view('administrators/studentadd', $student = []);
   }
 }

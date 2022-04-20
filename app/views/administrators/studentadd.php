@@ -6,6 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
+      <h1>Create a new student</h1>
       <!-- Student Edit Form -->
       <form action="" method="post">
         <!-- Student number -->

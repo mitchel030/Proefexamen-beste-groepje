@@ -7,6 +7,7 @@
   <div class="row">
     <div class="col-10">
       <h1>Student Overview</h1>
+      <a class="btn btn-primary" href="<?= URLROOT ?>/administrators/studentadd" role="button">Create a new user</a>
       <!-- Table with student information -->
       <table class="table table-hover">
         <thead>

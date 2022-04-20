@@ -94,4 +94,9 @@ class Administrator
     // Return a rowcount
     return $this->db->rowCount();
   }
+
+  public function addStudent()
+  {
+    var_dump($_POST);
+  }
 }

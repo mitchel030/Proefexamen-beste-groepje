@@ -60,8 +60,16 @@ class Administrators extends Controller
   // Initiate deleteStudent function in the model
   public function studentDelete()
   {
-    // Initiate deleteStudent function in models/administrator.php
-    $this->adminModel->deleteStudent();
+    // Check if $_GET["id"] is set. Return information of the student if ID is set.
+    if (isset($_GET)) {
+      if (isset($_GET["id"])) {
+        // Put $_GET[id] in $id if it exists
+        $id = $_GET["id"];
+        // Initiate deleteStudent function in models/administrator.php
+        $this->adminModel->deleteStudent($id);
+      }
+    }
+
     // Send array of data with the view to administrator/studentdelete
     $this->view('administrators/studentdelete', $student = []);
   }

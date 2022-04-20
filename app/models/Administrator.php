@@ -38,7 +38,7 @@ class Administrator
   // Retrieve data of specific student based on the student id
   public function getStudent($id)
   {
-    // Create SQL statement
+    // Create SQL SELECT statement
     $sql = "SELECT * FROM `student` WHERE `studentid` = '$id'";
     // Prepare SQL statement
     $this->db->query($sql);
@@ -46,7 +46,7 @@ class Administrator
     return $this->db->single();
   }
 
-  // Edit student details based on 
+  // Edit student details based on POST values given from the edit form
   public function editStudent()
   {
     // Filter all POST variables using PHP build in filter_var function
@@ -80,5 +80,18 @@ class Administrator
       // If not all the fields are filled in
       return "Not all required fields are filled in.";
     }
+  }
+
+  // Delete student details from the student table, returns number amount of rows affected by the SQL statement
+  public function deleteStudent($id)
+  {
+    // Create SQL DELETE Statement
+    $sql = "DELETE * FROM `student` WHERE `studentid` = '$id'";
+    // Prepare SQL statement
+    $this->db->query($sql);
+    // Execute SQL statement
+    $this->db->execute();
+    // Return a rowcount
+    return $this->db->rowCount();
   }
 }

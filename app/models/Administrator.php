@@ -85,14 +85,16 @@ class Administrator
 	//Create update function which updates the array that was selected in the edit function
 	public function update($id, $afkorting, $naam, $achternaam, $email, $telefoon, $klas)
 	{
-		$this->db->query("UPDATE {$this->table} SET afkorting = :afkorting, naam = :naam, achternaam = :achternaam , email = :email, telefoon = :telefoon, klas = :klas WHERE id = {$id}");
-	$this->db->bind(':afkorting', $afkorting);
-	$this->db->bind(':naam', $naam);
-    $this->db->bind(':achternaam ', $achternaam );
-    $this->db->bind(':email', $email);
-    $this->db->bind(':telefoon', $telefoon);
-	$this->db->bind(':klas', $klas);
-    
+		$this->db->query("UPDATE {$this->table} 
+							SET afkorting = :afkorting, naam = :naam, achternaam = :achternaam, email = :email, telefoon = :telefoon, klas = :klas 
+							WHERE id = {$id}");
+
+		$this->db->bind(':afkorting', $afkorting);
+		$this->db->bind(':naam', $naam);
+		$this->db->bind(':achternaam ', $achternaam );
+		$this->db->bind(':email', $email);
+		$this->db->bind(':telefoon', $telefoon);
+		$this->db->bind(':klas', $klas);
 
 		return $this->db->execute();
 	}

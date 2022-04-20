@@ -1,50 +1,38 @@
-<!-- Require head.php -->
-<?php require_once APPROOT . '\views\includes\head.php'; ?>
-
-<a href="<?= URLROOT ?>/administrators/student/overview">Back to teacher Overview</a></li>
-
-<div class="container">
-  <div class="row">
-    <div class="col-10">
-      <h1>Create a new teacher</h1>
-      <!-- teacher Edit Form -->
-      <form action="" method="post">
-      
-        <div class="form-group">
-          <label for="afkorting">afkorting</label>
-          <input type="text" class="form-control" id="afkorting" placeholder="afkorting" name="afkorting">
-        </div>
-      
-        <div class="form-group">
-          <label for="naam">naam</label>
-          <input type="text" class="form-control" id="Naam" placeholder="Naam" name="Naam">
-        </div>
-     
-        <div class="form-group">
-          <label for="achternaam">achternaam</label>
-          <input type="text" class="form-control" id="achternaam" placeholder="achternaam" name="achternaam">
-        </div>
-        
-        <div class="form-group">
-          <label for="email">email</label>
-          <input type="text" class="form-control" id="email" placeholder="email" name="email">
-        </div>
-       
-        <div class="form-group">
-          <label for="telefoon">telefoon</label>
-          <input type="telefoon" class="form-control" id="telefoon" placeholder="telefoon" name="telefoon">
-        </div>
-       
-        <div class="form-group">
-          <label for="klas">klas</label>
-          <input type="text" class="form-control" id="klas" placeholder="klas" name="klas">
-        </div>
-
-        <button type="submit" name="add" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- Require end.php -->
-<?php require_once APPROOT . '\views\includes\end.php'; ?>
+<?php 
+require_once APPROOT . '\views\includes\head.php';
+?>
+<form action="" method="POST" class="form">
+                        
+                            <div class="col-12">
+                                <label class="visually-hidden">afkorting</label>
+                                <input type="afkorting" name="afkorting" class="form-control" id="inputafkorting" placeholder="afkorting">
+                            </div>
+                            <div class="col-12">
+                                <label class="visually-hidden">naam</label>
+                                <input type="naam" name="naam" class="form-control" id="inputnaam" placeholder="naam">
+                            </div>
+                            <div class="col-12">
+                            <label class="visually-hidden">achternaam</label>
+                            <input type="achternaam" name="achternaam" class="form-control" id="inputachternaam" placeholder="achternaam">
+                            </div>
+                            <div class="col-12">
+                            <label class="visually-hidden">email</label>
+                            <input type="email" name="email" class="form-control" id="inputemail" placeholder="email">
+                            </div>
+                            <div class="col-12">
+                            <label class="visually-hidden">telefoon</label>
+                            <input type="telefoon" name="telefoon" class="form-control" id="inputtelefoon" placeholder="telefoon">
+                            </div>
+                            <div class="col-12">
+                            <label class="visually-hidden">klas</label>
+                            <input type="klas" name="klas" class="form-description" id="inputklas" placeholder="klas">
+                            </div>
+                            
+                        <br></br>   
+                        <div class="row">
+                            <div class="col-12">
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <?php require_once APPROOT . '\views\includes\end.php'; ?>

@@ -1,3 +1,6 @@
+<?php 
+require_once APPROOT . '\views\includes\head.php';
+?>
 <form action="" method="POST" class="form">
                         
                             <div class="col-12">
@@ -35,3 +38,4 @@
                             </div>
                         </div>
                     </form>
+                    <?php require_once APPROOT . '\views\includes\end.php'; ?>

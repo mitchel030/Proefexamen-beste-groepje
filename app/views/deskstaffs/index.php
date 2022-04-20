@@ -1,0 +1,1 @@
+<li><a href="<?= URLROOT ?>/deskstaffs/delete">Desk Clerks</a></li>

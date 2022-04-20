@@ -27,8 +27,8 @@ class Administrator
       $studentRows .= "<td>" . $as->email . "</td>";
       $studentRows .= "<td>" . $as->phone . "</td>";
       $studentRows .= "<td>" . $as->class . "</td>";
-      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentedit?id=" . $as->studentid . "'>Edit Student</a></li></td>";
-      $studentRows .= "<td>Delete</td>";
+      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentedit?id=" . $as->studentid . "'>Edit Student</a></td>";
+      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentdelete?id=" . $as->studentid . "'>Delete Student</a></td>";
       $studentRows .= "</tr>";
     }
     // Return the HTML rows with data

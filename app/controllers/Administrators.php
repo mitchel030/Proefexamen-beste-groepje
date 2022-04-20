@@ -60,6 +60,9 @@ class Administrators extends Controller
   // Initiate deleteStudent function in the model
   public function studentDelete() 
   {
-    
+    // Send array of data with the view to administrator/studentdelete
+    $this->view('administrators/studentdelete', $student = [
+
+    ]);
   }
 }

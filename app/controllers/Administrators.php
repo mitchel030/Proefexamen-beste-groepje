@@ -41,7 +41,13 @@ class Administrators extends Controller
     if (isset($_POST)) {
       if (isset($_POST["edit"])) {
         // Initiate editStudent function in models/administrator.php
-        $this->adminModel->editStudent();
+        $modifiedStudents = $this->adminModel->editStudent();
+        if ($modifiedStudents === 1) {
+          header("Location: student");
+        } else {
+          // Return value if either zero or multiple lines are modified in the database
+          var_dump($modifiedStudents);
+        }
       }
     }
     // Send array of data with the view to administrator/studentedit, include id of student being requested

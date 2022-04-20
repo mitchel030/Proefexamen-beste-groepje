@@ -51,6 +51,35 @@ class Administrator
   // Edit student details based on 
   public function editStudent()
   {
-    var_dump($_POST);
+    // Filter all POST variables using PHP build in filter_var function
+    $id = filter_var($_POST["id"], FILTER_SANITIZE_STRING);
+    $nr = filter_var($_POST["studentnumber"], FILTER_SANITIZE_STRING);
+    $firstname = filter_var($_POST["firstname"], FILTER_SANITIZE_STRING);
+    $infix = filter_var($_POST["infix"], FILTER_SANITIZE_STRING);
+    $lastname = filter_var($_POST["lastname"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
+    $phone = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
+    $class = filter_var($_POST["class"], FILTER_SANITIZE_STRING);
+
+    // Check if all required fields are not empty
+    if (!empty($id) && !empty($nr) && !empty($firstname) && !empty($lastname) && !empty($email) && !empty($phone) && !empty($class)) {
+      // Create query using the filtered inputs
+      $sql = "UPDATE `student` SET `studentnr` = '$nr',
+                                    `firstname` = '$firstname',
+                                    `infix` = '$infix',
+                                    `lastname` = '$lastname',
+                                    `email` = '$email',
+                                    `phone` = '$phone',
+                                    `class` = '$class'
+                            WHERE `student`.`studentid` = $id";
+      // Prepare SQL Statement
+      $this->db->query($sql);
+      // Execute SQL Statement
+      $this->db->execute();
+      // Return the amount of rows that are modified
+      return $this->db->rowCount();
+    } else {
+      return "Not all required fields are filled in.";
+    }
   }
 }

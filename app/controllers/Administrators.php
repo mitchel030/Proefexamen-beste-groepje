@@ -10,4 +10,10 @@ class Administrators extends Controller
   {
     $this->view('administrators/index');
   }
+
+  // Initiate admin/student view
+  public function student()
+  {
+    $this->view('administrators/student');
+  }
 }

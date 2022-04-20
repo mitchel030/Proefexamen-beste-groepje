@@ -1,6 +1,8 @@
 <!-- Require head.php -->
 <?php require_once APPROOT . '\views\includes\head.php'; ?>
 
+<a href="<?= URLROOT ?>/administrators/index">Back to admin dashboard</a></li>
+
 <div class="container">
   <div class="row">
     <div class="col-10">

@@ -1,7 +1,7 @@
 <div class="container">
-	<div class="jumbotron">
-		<form action="<?= URLROOT ?>/views/update/<?= $data->id; ?>" method="post">
-		  <div class="form-group">
+   <div class="jumbotron">
+      <form action="<?= URLROOT ?>/administrators/update/<?= $data->id; ?>" method="post">
+      <div class="form-group">
 		    <label>afkorting</label>
 		    <input type="text" class="form-control" name="afkorting" placeholder="Enter afkorting" value="<?= $data->afkorting; ?>">
 		  </div>

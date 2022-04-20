@@ -25,10 +25,10 @@ class Administrators extends Controller
 			$itemRows .= "<td>".$a->barcode."</td>";
       $itemRows .= "<td>".$a->isReservable."</td>";
 			$itemRows .= "<td>
-														<a class='btn btn-xs btn-info' href=/warehouseadmins/edit?id=$a->id>Edit
+														<a class='btn btn-xs btn-info' href=/administrators/edit?id=$a->id>Edit
 													</td>";
 			$itemRows.= "<td>
-														<a class='btn btn-xs btn-info' href=/warehouseadmins/destroy?id=$a->id>Delete
+														<a class='btn btn-xs btn-info' href=/administrators/destroy?id=$a->id>Delete
 													</td>";
 			$itemRows .= "</tr>";
 		}
@@ -77,8 +77,9 @@ class Administrators extends Controller
     $amount  = $_POST['amount'];
 		$description = $_POST['description'];
 		$barcode = $_POST['barcode'];
+    $isReservable = $_POST['isReservable'];
 
-		$this->adminModel->update($id, $brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode);
+		$this->adminModel->update($id, $brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode, $isReservable);
 		//Redirect to warehouseadmins view
 		$this->redirect('administrators');
 	}

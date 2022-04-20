@@ -1,31 +1,50 @@
+<!-- Require head.php -->
+<?php require_once APPROOT . '\views\includes\head.php'; ?>
+
+<a href="<?= URLROOT ?>/administrators/student/overview">Back to teacher Overview</a></li>
+
 <div class="container">
-	<div class="jumbotron">
-		<form action="<?= URLROOT ?>/administrators/store" method="post">
-		<div class="form-group">
-		    <label>afkorting</label>
-		    <input type="text" class="form-control" name="afkorting" placeholder="Enter afkorting" value="<?= $data->afkorting; ?>">
-		  </div>
-		  <div class="form-group">
-		    <label>naam</label>
-		    <input type="text" class="form-control" name="naam" placeholder="Enter naam" value="<?= $data->naam; ?>">
-		  </div>
-          <div class="form-group">
-		    <label>achternaam</label>
-		    <input type="text" class="form-control" name="achternaam" placeholder="Enter achternaam" value="<?= $data->achternaam; ?>">
-		  </div>
-          <div class="form-group">
-		    <label>email</label>
-		    <input type="text" class="form-control" name="email" placeholder="Enter email" value="<?= $data->email; ?>">
-		  </div>
-          <div class="form-group">
-		    <label>telefoon</label>
-		    <input type="text" class="form-control" name="telefoon" placeholder="Enter telefoon" value="<?= $data->telefoon; ?>">
-		  </div>
-          <div class="form-group">
-		    <label>klas</label>
-		    <input type="text" class="form-control" name="klas" placeholder="Enter klas" value="<?= $data->klas; ?>">
-		  </div>
-		  <button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-	</div>
+  <div class="row">
+    <div class="col-10">
+      <h1>Create a new teacher</h1>
+      <!-- teacher Edit Form -->
+      <form action="" method="post">
+      
+        <div class="form-group">
+          <label for="afkorting">afkorting</label>
+          <input type="text" class="form-control" id="afkorting" placeholder="afkorting" name="afkorting">
+        </div>
+      
+        <div class="form-group">
+          <label for="naam">naam</label>
+          <input type="text" class="form-control" id="Naam" placeholder="Naam" name="Naam">
+        </div>
+     
+        <div class="form-group">
+          <label for="achternaam">achternaam</label>
+          <input type="text" class="form-control" id="achternaam" placeholder="achternaam" name="achternaam">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="text" class="form-control" id="email" placeholder="email" name="email">
+        </div>
+       
+        <div class="form-group">
+          <label for="telefoon">telefoon</label>
+          <input type="telefoon" class="form-control" id="telefoon" placeholder="telefoon" name="telefoon">
+        </div>
+       
+        <div class="form-group">
+          <label for="klas">klas</label>
+          <input type="text" class="form-control" id="klas" placeholder="klas" name="klas">
+        </div>
+
+        <button type="submit" name="add" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
+
+<!-- Require end.php -->
+<?php require_once APPROOT . '\views\includes\end.php'; ?>

@@ -6,6 +6,26 @@ class Administrators extends Controller
     $this->adminModel = $this->model('Administrator');
   }
 
+  public function leraarAdd()
+  {
+    // Check if $_POST is set and if $_POST value add is send
+    if (isset($_POST)) {
+      if (isset($_POST["add"])) {
+        $addedleraar = $this->adminModel->addleraar();
+        // If one leraar is added, redirect user to 
+        if ($addedleraar === 1) {
+          header("Location: student");
+        } else {
+          // Return amount of created leraar if 0 of more than 1 have been created
+          var_dump($addedleraar);
+        }
+      }
+    }
+    $this->view('administrators/studentadd', $student = []);
+  }
+
+  // Initiate admin/deskstaff view
+
   public function index()
 	{		
 		// Retrieve all data from assortment table

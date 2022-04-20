@@ -7,7 +7,7 @@
          <div class="jumbotron mt-4">
             <center><h1>leraar curd</h1></center>
             <a href="<?= URLROOT ?>/administrators/create" class="btn btn-sm btn-primary">
-            Create
+           Voeg leraar toe
             </a>
             <div class="table-responsive mt-5">
                <table class="table">

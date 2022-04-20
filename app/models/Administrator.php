@@ -9,6 +9,49 @@ class Administrator
 		$this->db = new Database;
 	}
 
+	public function create()
+	{
+	  // Filter all POST variables using PHP build in filter_var function
+	  $afkorting = filter_var($_POST["afkorting"], );
+	  $naam = filter_var($_POST["naam"], );
+	  $achternaam = filter_var($_POST["achternaam"],);
+	  $lastname = filter_var($_POST["lastname"], );
+	  $email = filter_var($_POST["email"], );
+	  $telefoon = filter_var($_POST["telefoon"], );
+	  $klas = filter_var($_POST["klas"], );
+  
+	  // Check if every post variable except for infix is filled in
+	  if (!empty($afkorting) && !empty($naam) && !empty($achternaam) && !empty($email) && !empty($telefoon) && !empty($klas)) {
+		// Create query using the filtered inputs
+		$sql = "INSERT INTO `view` 
+							(`id`,  
+							`afkorting`, 
+							`naam`, 
+							`achternaam`, 
+							`email`, 
+							`phone`, 
+							`klas`) 
+					  VALUES (NULL, 
+							  '$afkorting', 
+							  '$naam', 
+							  '$achternaam',  
+							  '$email', 
+							  '$telefoon', 
+							  '$klas');";
+		// Prepare SQL Statement
+		$this->db->query($sql);
+		// Execute SQL Statement
+		$this->db->execute();
+		// Return the amount of rows that are modified
+		return $this->db->rowCount();
+	  } else {
+		// If not all the fields are filled in
+		return "Not all required fields are filled in.";
+	  }
+	}
+  
+	// Function to generate an overview of all deskstaffs in HTML table rows
+
 	// Create select statement and return all results in an array
 	public function getItems()
 	{

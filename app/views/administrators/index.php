@@ -24,7 +24,7 @@
                         <th scope="col">IsReservable</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
-                     </tr> 
+                     </tr>
                   </thead>
                   <tbody>
                      <?php echo $data["item"]; ?>

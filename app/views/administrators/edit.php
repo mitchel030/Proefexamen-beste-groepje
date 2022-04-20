@@ -3,35 +3,35 @@
       <form action="<?= URLROOT ?>/administrators/update/<?= $data->id; ?>" method="post">
          <div class="form-group">
             <label>Brand</label>
-            <input type="text" class="form-control" name="Brand" placeholder="Enter Brand" value="<?= $data->brand; ?>">
+            <input type="text" class="form-control" name="brand" placeholder="Enter Brand" value="<?= $data->brand; ?>">
          </div>
          <div class="form-group">
             <label>Typenumber</label>
-            <input type="text" class="form-control" name="Typenumber" placeholder="Enter Typenumber" value="<?= $data->typenumber; ?>">
+            <input type="text" class="form-control" name="typenumber" placeholder="Enter Typenumber" value="<?= $data->typenumber; ?>">
          </div>
          <div class="form-group">
             <label>PurchaseDate</label>
-            <input type="text" class="form-control" name="PurchaseDate" placeholder="Enter PurchaseDate" value="<?= $data->purchaseDtm; ?>">
+            <input type="text" class="form-control" name="purchaseDtm" placeholder="Enter PurchaseDate" value="<?= $data->purchaseDtm; ?>">
          </div>
          <div class="form-group">
             <label>Price</label>
-            <input type="text" class="form-control" name="Price" placeholder="Enter Price" value="<?= $data->price; ?>">
+            <input type="text" class="form-control" name="price" placeholder="Enter Price" value="<?= $data->price; ?>">
          </div>
          <div class="form-group">
             <label>Amount</label>
-            <input type="text" class="form-control" name="Amount" placeholder="Enter Amount" value="<?= $data->amount; ?>">
+            <input type="text" class="form-control" name="amount" placeholder="Enter Amount" value="<?= $data->amount; ?>">
          </div>
          <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" name="Description" placeholder="Enter Description" value="<?= $data->description; ?>">
+            <input type="text" class="form-control" name="description" placeholder="Enter Description" value="<?= $data->description; ?>">
          </div>
          <div class="form-group">
             <label>Barcode</label>
-            <input type="text" class="form-control" name="Barcode" placeholder="Enter Barcode" value="<?= $data->barcode; ?>">
+            <input type="text" class="form-control" name="barcode" placeholder="Enter Barcode" value="<?= $data->barcode; ?>">
          </div>
          <div class="form-group">
             <label>Reservable</label>
-            <input type="text" class="form-control" name="Reservable" placeholder="Enter Reservable" value="<?= $data->isReservable; ?>">
+            <input type="text" class="form-control" name="isReservable" placeholder="Enter Reservable" value="<?= $data->isReservable; ?>">
          </div>
          <button type="submit" class="btn btn-primary">Submit</button>
       </form>

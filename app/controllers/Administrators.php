@@ -1,6 +1,7 @@
 <?php
 class Administrators extends Controller
 {
+  // Instantiate administrator.php as model
   public function __construct()
   {
     $this->adminModel = $this->model('Administrator');
@@ -11,7 +12,7 @@ class Administrators extends Controller
 		// Retrieve all data from assortment table
 		$item = $this->adminModel->getItems();
 		
-		// Create HTML Rows using assortment data
+		// Create HTML Rows using item data
 		$itemRows = "";
 		foreach ($item as $a) {
 			$itemRows .= "<tr>";
@@ -24,6 +25,7 @@ class Administrators extends Controller
 			$itemRows .= "<td>".$a->description."</td>";
 			$itemRows .= "<td>".$a->barcode."</td>";
       $itemRows .= "<td>".$a->isReservable."</td>";
+      // Creates two buttons that send you to the create and update forms through the controllers redirects
 			$itemRows .= "<td>
 														<a class='btn btn-xs btn-info' href=/administrators/edit?id=$a->id>Edit
 													</td>";
@@ -32,13 +34,13 @@ class Administrators extends Controller
 													</td>";
 			$itemRows .= "</tr>";
 		}
-
+    // Send the data to the view through $indexData array
 		$this->view('administrators/index', $indexData = [
 			"item" => $itemRows
 		]);
 	}
 
-	//Redirects to create.php
+	//Redirects to create.php form
 	public function create()
 	{
 		$this->view('administrators/create');
@@ -47,6 +49,7 @@ class Administrators extends Controller
 	//Stores the information in database through adminModel
 	public function store()
 	{
+    //Initiating indexes through $_POST variable
 		$brand  = $_POST['brand'];
 		$typenumber = $_POST['typenumber'];
 		$purchaseDtm = $_POST['purchaseDtm'];
@@ -57,6 +60,7 @@ class Administrators extends Controller
 
 
 		$this->adminModel->store($brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode);
+    //Redirect to administrators index after storing data
 		$this->redirect('administrators');
 	}
 
@@ -70,6 +74,7 @@ class Administrators extends Controller
 	//Updates the information in database through adminModel
 	public function update($id)
 	{
+    //Initiating indexes through $_POST variable
 		$brand  = $_POST['brand'];
 		$typenumber = $_POST['typenumber'];
 		$purchaseDtm = $_POST['purchaseDtm'];
@@ -80,15 +85,17 @@ class Administrators extends Controller
     $isReservable = $_POST['isReservable'];
 
 		$this->adminModel->update($id, $brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode, $isReservable);
-		//Redirect to warehouseadmins view
+		//Redirect to administrators view
 		$this->redirect('administrators');
 	}
 
-	//Delete through adminModel and redirect to warehouseadmins view
+	// Deletes entry from database
 	public function destroy()
 	{
+    // Deletes entry from database through function from model
 		$this->adminModel->destroy();
 
+    // Redirects to administrators view
 		$this->redirect('administrators');
 	}
 }

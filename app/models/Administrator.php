@@ -41,9 +41,9 @@ class Administrator
 	}
 
 	//Create update function which updates the array that was selected in the edit function
-	public function update($id, $brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode)
+	public function update($id, $brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode, $isReservable)
 	{
-		$this->db->query("UPDATE {$this->table} SET brand = :brand, typenumber = :typenumber, purchaseDtm = :purchaseDtm, price = :price, amount = :amount, description = :description, barcode = :barcode WHERE id = {$id}");
+		$this->db->query("UPDATE {$this->table} SET brand = :brand, typenumber = :typenumber, purchaseDtm = :purchaseDtm, price = :price, amount = :amount, description = :description, barcode = :barcode, isReservable = :isReservable WHERE id = {$id}");
 
 		$this->db->bind(':brand', $brand);
 		$this->db->bind(':typenumber', $typenumber);
@@ -52,6 +52,7 @@ class Administrator
     $this->db->bind(':amount', $amount);
 		$this->db->bind(':description', $description);
     $this->db->bind(':barcode', $barcode);
+    $this->db->bind(':isReservable', $isReservable);
 
 		return $this->db->execute();
 	}

@@ -80,4 +80,10 @@ class Administrators extends Controller
     // Send array of data with the view to administrator/studentdelete
     $this->view('administrators/studentdelete', $student = []);
   }
+
+  // Initiate addStudent function in the model
+  public function studentAdd() 
+  {
+    $this->view('administrators/studentadd', $student = []);
+  }
 }

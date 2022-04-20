@@ -22,4 +22,10 @@ class Administrators extends Controller
       "overview" => $studentOverview
     ]);
   }
+
+  // Initiate admin/studentedit view
+  public function studentedit()
+  {
+    $this->view('administrators/studentedit');
+  }
 }

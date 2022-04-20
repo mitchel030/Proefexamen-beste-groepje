@@ -98,5 +98,15 @@ class Administrator
   public function addStudent()
   {
     var_dump($_POST);
+    // Filter all POST variables using PHP build in filter_var function
+    $nr = filter_var($_POST["studentnumber"], FILTER_SANITIZE_STRING);
+    $firstname = filter_var($_POST["firstname"], FILTER_SANITIZE_STRING);
+    $infix = filter_var($_POST["infix"], FILTER_SANITIZE_STRING);
+    $lastname = filter_var($_POST["lastname"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
+    $phone = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
+    $class = filter_var($_POST["class"], FILTER_SANITIZE_STRING);
+
+    
   }
 }

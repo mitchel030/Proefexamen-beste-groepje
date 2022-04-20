@@ -87,7 +87,14 @@ class Administrators extends Controller
     // Check if $_POST is set and if $_POST value add is send
     if (isset($_POST)) {
       if (isset($_POST["add"])) {
-        var_dump($_POST);
+        $addedStudents = $this->adminModel->addStudent();
+        // If one student is added, redirect user to 
+        if ($addedStudents === 1) {
+          var_dump($addedStudents);
+        } else {
+          // Return amount of created students if 0 of more than 1 have been created
+          var_dump($addedStudents);
+        }
       }
     }
     $this->view('administrators/studentadd', $student = []);

@@ -27,7 +27,7 @@ class Administrator
       $studentRows .= "<td>" . $as->email . "</td>";
       $studentRows .= "<td>" . $as->phone . "</td>";
       $studentRows .= "<td>" . $as->class . "</td>";
-      $studentRows .= "<td>Edit</td>";
+      $studentRows .= "<td><a href='" . URLROOT . "/administrators/studentedit?id=" . $as->studentid . "'>Edit Student</a></li></td>";
       $studentRows .= "<td>Delete</td>";
       $studentRows .= "</tr>";
     }

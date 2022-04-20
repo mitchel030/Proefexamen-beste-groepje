@@ -33,12 +33,39 @@ class Administrators extends Controller
 														<a class='btn btn-xs btn-info' href=/administrators/destroy?id=$a->id>Delete
 													</td>";
 			$itemRows .= "</tr>";
-		}
-    // Send the data to the view through $indexData array
+    }
+
+    $reservableItem = $this->adminModel->getReservableItems();
+		
+		// Create HTML Rows using item data
+		$reservableItemRows = "";
+		foreach ($reservableItem as $i) {
+			$reservableItemRows .= "<tr>";
+			$reservableItemRows .= "<th scope='row'>".$i->id."</th>";
+			$reservableItemRows .= "<td>".$i->brand."</td>";
+			$reservableItemRows .= "<td>".$i->typenumber."</td>";
+			$reservableItemRows .= "<td>".$i->purchaseDtm."</td>";
+			$reservableItemRows .= "<td>".$i->price."</td>";
+      $reservableItemRows .= "<td>".$i->amount."</td>";
+			$reservableItemRows .= "<td>".$i->description."</td>";
+			$reservableItemRows .= "<td>".$i->barcode."</td>";
+      $reservableItemRows .= "<td>".$i->isReservable."</td>";
+      // Creates two buttons that send you to the create and update forms through the controllers redirects with the selected id
+			$reservableItemRows .= "<td>
+														<a class='btn btn-xs btn-info' href=/administrators/edit?id=$i->id>Edit
+													</td>";
+			$reservableItemRows.= "<td>
+														<a class='btn btn-xs btn-info' href=/administrators/destroy?id=$i->id>Delete
+													</td>";
+			$reservableItemRows .= "</tr>";
+    }
+      // Send the data to the view through $indexData array
 		$this->view('administrators/index', $indexData = [
-			"item" => $itemRows
+			"item" => $itemRows, "reservable" =>$reservableItemRows
 		]);
-	}
+}
+
+
 
 	//Redirects to create.php form
 	public function create()

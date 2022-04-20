@@ -1,3 +1,5 @@
+<?php require_once APPROOT . '\views\includes\head.php';?>
+
 <div class="container">
    <div class="jumbotron">
       <form action="<?= URLROOT ?>/administrators/update/<?= $data->id; ?>" method="post">

@@ -12,9 +12,17 @@ class Administrator
 	// Create select statement and return all results in an array
 	public function getItems()
 	{
-		$this->db->query("SELECT * FROM {$this->table}");
+		$this->db->query("SELECT * FROM {$this->table} WHERE isReservable = 0");
 		return $this->db->resultSet();
 	}
+
+  public function getReservableItems()
+	{
+		$this->db->query("SELECT * FROM {$this->table} WHERE isReservable = 1");
+		return $this->db->resultSet();
+	}
+
+  
 
 	//Send array to database through SQL Query
 	public function store($brand, $typenumber, $purchaseDtm, $price, $amount, $description, $barcode)

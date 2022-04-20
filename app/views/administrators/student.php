@@ -23,17 +23,8 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Table data concatenated to HTML -->
-          <tr>
-            <th scope="row">1</th>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-          </tr>
+          <!-- Echo table `student` data concatenated into HTML in $data -->
+          <?= $data["overview"] ?>
         </tbody>
       </table>
     </div>

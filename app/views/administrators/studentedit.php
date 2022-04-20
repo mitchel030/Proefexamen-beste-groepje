@@ -21,6 +21,11 @@
           <label for="firstname">First name</label>
           <input type="text" class="form-control" id="firstname" placeholder="firstname" name="firstname">
         </div>
+        <!-- Infix -->
+        <div class="form-group">
+          <label for="infix">Infix</label>
+          <input type="text" class="form-control" id="infix" placeholder="infix" name="infix">
+        </div>
         <!-- Lastname -->
         <div class="form-group">
           <label for="studentnumber">Studentnumber</label>

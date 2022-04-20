@@ -86,7 +86,7 @@ class Administrator
   public function deleteStudent($id)
   {
     // Create SQL DELETE Statement
-    $sql = "DELETE * FROM `student` WHERE `studentid` = '$id'";
+    $sql = "DELETE FROM `student` WHERE `student`.`studentid` = $id";
     // Prepare SQL statement
     $this->db->query($sql);
     // Execute SQL statement

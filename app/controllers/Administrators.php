@@ -66,7 +66,14 @@ class Administrators extends Controller
         // Put $_GET[id] in $id if it exists
         $id = $_GET["id"];
         // Initiate deleteStudent function in models/administrator.php
-        $this->adminModel->deleteStudent($id);
+        $deletedRows = $this->adminModel->deleteStudent($id);
+        if ($deletedRows === 1) {
+          // Redirect user after 1 row has been affected (deleted)
+          header("Location: student");
+        } else {
+          // Return value of amount of rows affected if not 1
+          var_dump($deletedRows);
+        }
       }
     }
 

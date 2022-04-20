@@ -34,4 +34,9 @@ class Administrator
     // Return the HTML rows with data
     return $studentRows;
   }
+
+  // Edit student details based on 
+  public function editStudent()
+  {
+  }
 }

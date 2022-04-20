@@ -22,4 +22,38 @@ class Administrators extends Controller
       "overview" => $studentOverview
     ]);
   }
+
+  // Initiate admin/studentedit view
+  public function studentedit()
+  {
+    $studentinfo = null;
+
+    // Check if $_GET["id"] is set. Return information of the student if ID is set.
+    if (isset($_GET)) {
+      if (isset($_GET["id"])) {
+        // Put $_GET[id] in $id if it exists
+        $id = $_GET["id"];
+        $studentinfo = $this->adminModel->getStudent($id);
+      }
+    }
+
+    // Check if $_POST["edit"] is set.
+    if (isset($_POST)) {
+      if (isset($_POST["edit"])) {
+        // Initiate editStudent function in models/administrator.php
+        $modifiedStudents = $this->adminModel->editStudent();
+        if ($modifiedStudents === 1) {
+          header("Location: student");
+        } else {
+          // Return value if either zero or multiple lines are modified in the database
+          var_dump($modifiedStudents);
+        }
+      }
+    }
+    // Send array of data with the view to administrator/studentedit, include id of student being requested
+    $this->view('administrators/studentedit', $student = [
+      "id" => $id,
+      "studentinfo" => $studentinfo
+    ]);
+  }
 }

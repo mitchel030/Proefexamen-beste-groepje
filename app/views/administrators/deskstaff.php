@@ -15,7 +15,6 @@
             <!-- Table column names -->
             <th scope="col">Studentnumber</th>
             <th scope="col">Firstname</th>
-            <th scope="col">Infix</th>
             <th scope="col">Lastname</th>
             <th scope="col">Email</th>
             <th scope="col">Class</th>
